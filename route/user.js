@@ -3,6 +3,12 @@ const app = express.Router()
 const bcrypt = require('bcrypt');
 const userModel = require("../schema/usersSchema")
 
+
+app.get("/", (req, res)=>{
+    res.send("welcome to create users ")
+})
+
+
 app.post("/", async (req, res)=>{
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
