@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URL)
 const product = require("./route/product")
 const category = require("./route/category")
 const user = require("./route/user")
+const logUser = require("./route/logUser")
 //router getting end
 
 
@@ -36,6 +37,7 @@ app.get("/", (req, res)=>{
 app.use("/product", product)
 app.use("/category", category)
 app.use("/user", user)
+app.use("/loguser", logUser)
 //app using end
 
 app.listen(process.env.PORT, ()=>{
