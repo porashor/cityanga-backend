@@ -23,7 +23,7 @@ app.post("/", async (req, res)=>{
             res.status(500).json("no data found")
         }else{
             const token = jwt.sign({
-                id: userCreate._id,
+                name: userCreate.name,
                 email: userCreate.email,
                 role: userCreate.role
             }, process.env.JWT_TOKEN_SEC, {
