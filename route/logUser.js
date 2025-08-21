@@ -25,6 +25,7 @@ app.post("/", async (req, res)=>{
             const token = jwt.sign({
                 name: userCreate.name,
                 email: userCreate.email,
+                location: userCreate.location,
                 role: userCreate.role
             }, process.env.JWT_TOKEN_SEC, {
                 expiresIn: "7d"
