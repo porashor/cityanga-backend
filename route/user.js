@@ -29,7 +29,7 @@ app.post("/", async (req, res) => {
 app.post("/:id", async (req, res) => {
   try {
     const userLocationAddress = await userModel.updateOne(
-      { _id: req.params.id },{ location: req.body.location }
+      {email: req.params.email },{ location: req.body.location }
     );
     res.json(userLocationAddress);
   } catch (err) {
