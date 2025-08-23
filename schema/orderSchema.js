@@ -25,7 +25,12 @@ const orderSchema = new mongoose.Schema({
     product: {
         type: Array,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
+
 })
 
 
