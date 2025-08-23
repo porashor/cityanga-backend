@@ -10,6 +10,10 @@ const orderSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    location: {
+        type: String,
+        required: true,
+    },
     price: {
         type:Number,
         required: true

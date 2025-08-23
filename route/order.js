@@ -15,6 +15,7 @@ app.post("/", async (req, res)=>{
             name: req.body.name,
             email: req.body.email,
             price: req.body.price,
+            location: req.body.location,
             delivery: req.body.delivery,
             product: req.body.product
         })
