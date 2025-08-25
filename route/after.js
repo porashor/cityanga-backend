@@ -25,7 +25,7 @@ app.post("/", async (req, res)=>{
 
 app.put("/:email", async (req, res)=>{
     try {
-        const result = await afterSchema.updateOne({ email: req.params.email }, {after: [...req.body.after] });
+        const result = await afterSchema.updateOne({ email: req.params.email }, {after: req.body.after });
 
         if (result.modifiedCount === 0) {
             return res.status(404).json({ message: "No matching document found or no changes made." });
