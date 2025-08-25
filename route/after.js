@@ -10,16 +10,11 @@ app.get("/", async (req, res)=>{
 
 
 app.post("/", async (req, res)=>{
-    const data = {
-        status: req.body.status,
-        date: new Date(),
-        order: req.body.after
-    }
     try{
         const cartpush = afterSchema.create({
             name: req.body.name,
             email: req.body.email,
-            after: data
+            after: req.body.after
         })
         res.status(201).json(cartpush); 
     }catch(err){
@@ -29,13 +24,8 @@ app.post("/", async (req, res)=>{
 })
 
 app.put("/:email", async (req, res)=>{
-    const data = {
-        status: req.body.status,
-        date: new Date(),
-        order: req.body.after
-    }
     try {
-        const result = await afterSchema.updateOne({ email: req.params.email }, {after: data});
+        const result = await afterSchema.updateOne({ email: req.params.email }, {after: res.body.after});
 
         if (result.modifiedCount === 0) {
             return res.status(404).json({ message: "No matching document found or no changes made." });
