@@ -28,6 +28,7 @@ const user = require("./route/user")
 const logUser = require("./route/logUser")
 const cart = require("./route/cart")
 const order = require("./route/order")
+const after = require("./route/after")
 //router getting end
 
 
@@ -42,6 +43,7 @@ app.use("/user", user)
 app.use("/loguser", logUser)
 app.use("/cart", cart)
 app.use("/order", order)
+app.use("/after", after)
 //app using end
 
 app.listen(process.env.PORT, ()=>{
